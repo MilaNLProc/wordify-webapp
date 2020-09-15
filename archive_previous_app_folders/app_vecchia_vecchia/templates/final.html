@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}  
+
+  <!--==========================
+      Wordify Section
+    ============================-->
+<section id="wordify">
+  <div class="container">
+    <div class="jumbotron wow fadeInUp">
+      <h1>Upload Complete!</h1>
+      <p>Your file has <b>{{ rows }}</b> rows and <b>{{ labels }}</b> different labels</p>
+      <p>We will process the data and send you a file with the most indicative positive and negative terms for each label.</p>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div>
+            <p>{{ message }}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

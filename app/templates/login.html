@@ -1,0 +1,18 @@
+<section>
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        <p>{{ form.password(class="form-control", placeholder="Enter Password") }}</p>
+    </form>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert"=>
+            &times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</section>

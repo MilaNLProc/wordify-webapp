@@ -1,0 +1,45 @@
+# Nginx SELinux Configuration
+https://www.getpagespeed.com/server-setup/nginx/nginx-selinux-configuration
+
+
+# How I identified the problem: read comments here
+https://serverfault.com/questions/732517/nginx-wont-connect-to-my-socket-due-to-insufficient-permissions
+
+
+# How I opened port:80
+https://linuxhint.com/open-port-80-centos7/
+
+
+# How to deal with firewall, in case it is needed
+https://linuxhint.com/open-port-80-centos7/
+
+
+# Check server is listening on specific port (from a local machine)
+https://linuxhint.com/open-port-80-centos7/
+https://www.thegeekdiary.com/centos-rhel-how-to-find-if-a-network-port-is-open-or-not/
+
+
+# Explanation of nginx configuration
+https://www.linode.com/docs/web-servers/nginx/how-to-configure-nginx/
+
+
+# Main guide I followed to set up uwsgi, nginx, and flask
+https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-centos-7
+
+
+# Useful commands:
+sudo systemctl [reload/restart] [nginx/app]  # check for more info
+sudo journalctl [nginx/app]  # check for more info
+sudo systemctl daemon-reload  # when you modify app.ini
+sudo nginx -t  # to test if nginx configuration is fine 
+
+
+# Important files
+/etc/nginx/nginx.conf  # all nginx configuration
+/flask-app/app.ini  # all uwsgi configuration
+/etc/systemd/system/app.service  # to tell the system to start the app at boot 
+                                 # and run it in the background
+
+
+# Find public IP address of machine
+curl icanhazip.com

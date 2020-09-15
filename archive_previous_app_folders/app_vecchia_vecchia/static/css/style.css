@@ -1,0 +1,358 @@
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "Spoon";
+    src: url("../fonts/Spoon/Spoon_Regular.ttf");
+}
+
+
+
+/* NAVBAR */
+a strong {
+    font-weight: 800;
+    font-family: "Spoon";
+    font-size: 1.3rem;
+}
+
+
+
+
+/* IMAGE */
+#logo-div {
+    background: #5AF7D8;
+    background-size: cover;
+}
+
+#logo-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+    padding-top: 20px
+}
+
+
+
+
+/* DESCRIPTION SECTION */
+#description {
+    text-align: center;
+    max-width: 80%;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 1.3rem;
+    font-family: 'Manjari', serif;
+    color: #3B5F67;
+}
+
+#top p strong {
+    color: #3B5F67;
+    font-weight: 800;
+    font-size: 1.3rem;
+    font-family: "Spoon";
+}
+
+
+/* BUTTON */
+#bigbutton {
+    font-family: "Lato", serif;
+    font-weight: 400;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#bigbutton strong {
+    font-family: "Spoon";
+    font-size: inherit;
+    font-weight: 600;
+}
+
+
+/* JUMBOTRON */
+.jumbotron {
+    text-align: center;
+    max-width: 80%;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 1.3rem;
+    font-family: 'Manjari', serif;
+    color: #3B5F67;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background:-moz-linear-gradient(top, #5AF7D8 40%, #d7f4ee); 
+    background:-webkit-linear-gradient(top, #5AF7D8 40%, #d7f4ee);
+}
+
+@media only screen and (min-width:992px) {
+    .jumbotron {
+        max-width: 50%;
+    }
+}
+
+#jumbotron-section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+
+/* INSTRUCTIONS */
+#info {
+    align-content: center;
+    padding-top: 100px;
+    padding-bottom: 100px; 
+}
+
+#info-title {
+    padding: 40px;
+    text-align: center;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    min-width: 130px;
+}
+
+.card h1 {
+    padding: 10px 20px 40px 20px;
+}
+
+#card-container {
+    margin: 0 auto;
+    padding: 10px 20px 40px 20px;
+    width: 80%;
+}
+
+#img-backgroud {
+    vertical-align: middle;
+    border: 0;
+    position: absolute;
+    left: 0;
+    top: 450px;
+    z-index: -1;
+}
+
+
+
+/* UPLOAD */
+#description-upload {
+    text-align: center;
+    max-width: 80%;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    font-size: 1.3rem;
+    font-family: 'Manjari', serif;
+    color: #3B5F67;
+}
+
+#upload-button {
+    font-family: "Lato", serif;
+    font-weight: 400;
+    background: linear-gradient(135deg, #5AF7D8, #d7f4ee);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-width: 80%;
+}
+
+#submit-button {
+    font-family: "Lato", serif;
+    font-weight: 400;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#upload-container {
+  max-width: 50%;
+  padding-bottom: 100px;
+}
+
+@media only screen and (min-width:992px) {
+    #upload-container {
+        max-width: 30%;
+    }
+}
+
+#upload-block {
+  background-image: url("../img/bg-dots-square.png");
+  background-repeat: repeat;
+  padding-top: 40px;
+}
+
+#img-backgroud-upload {
+    vertical-align: middle;
+    border: 0;
+    position: absolute;
+    left: 0;
+    top: 500px;
+    z-index: -1;
+}
+
+
+
+/* FINAL */
+#final-jumbotron-section {
+    align-content: center;
+    padding-top: 100px;
+    padding-bottom: 100px; 
+}
+
+#final-jumbotron {
+    text-align: center;
+    max-width: 70%;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 1.3rem;
+    font-family: 'Manjari', serif;
+    color: #3B5F67;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background:-moz-linear-gradient(top, #5AF7D8 40%, #d7f4ee); 
+    background:-webkit-linear-gradient(top, #5AF7D8 40%, #d7f4ee);
+}
+
+@media only screen and (min-width:992px) {
+    #final-jumbotron {
+        max-width: 50%;
+    }
+}
+
+#final-title {
+    text-align: center;
+}
+
+#final-title p b {
+    color: #3B5F67;
+    font-weight: 800;
+    font-size: 1.3rem;
+    font-family: "Spoon";
+}
+
+#final-description {
+    text-align: center;
+    max-width: 80%;
+    margin: auto;
+    padding-top: 80px;
+    font-size: 1.3rem;
+    font-family: 'Manjari', serif;
+    color: #3B5F67;
+}
+
+
+
+
+
+/* FOOTER */
+.footer-dark {
+    padding: 60px 10px 20px 10px;
+    color: #f0f9ff;
+    background-color: #282d32;
+}
+
+.footer-dark a {
+    color: #5AF7D8;
+    opacity: 0.6;
+}
+
+.footer-dark h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.footer-dark ul {
+    padding: 0;
+    list-style: none;
+    line-height: 1.6;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.footer-dark ul li {
+    border-left: 1px solid #858486;
+    float: left;
+    margin-right: 10px;
+    overflow: hidden;
+    padding: 0px 0 3px 10px;
+    text-overflow: ellipsis;
+    width: 160px;
+}
+
+.footer-dark ul a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.footer-dark ul a {
+    text-transform: uppercase;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+.footer-dark ul a:hover {
+    opacity: 1;
+    color: #5AF7D8;
+}
+
+.footer-dark p a {
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+.footer-dark p a:hover {
+    opacity: 1;
+    color: #5AF7D8;
+}
+
+@media (max-width:767px) {
+    .footer-dark .item:not(.social) {
+        text-align: center;
+        padding-bottom: 20px;
+    }
+}
+
+.footer-dark .item.text {
+    margin-bottom: 36px;
+}
+
+@media (max-width:767px) {
+    .footer-dark .item.text {
+        margin-bottom: 0;
+    }
+}
+
+.footer-dark .item.text p {
+    opacity: 0.8;
+    margin-bottom: 0;
+}
+
+.footer-dark .copyright {
+    text-align: center;
+    padding-top: 24px;
+    opacity: 0.6;
+    font-size: 13px;
+    margin-bottom: 0;
+    color: inherit;
+}
+
+#footer-col-1 {
+  text-align: left;
+}
+
+#footer-col-2 {
+  text-align: left;
+}
+
+#DMI {
+  font-size: 1.3rem;
+}

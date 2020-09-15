@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+{% block content %}
+<!--==========================
+  Intro Section
+============================-->
+<section id="intro" class="clearfix">
+    <div class="container">
+        <div class="intro-img">
+            <img src="{{ url_for('static', filename='img/intro-img.svg') }}" alt="" class="img-fluid">
+        </div>
+        <div class="intro-info">
+            <h1><strong>W<i class="fa fa-quote-left" style="font-size:34px;"></i>rdify</strong></h1>
+            <h3>makes it easy to identify words<br>
+                that discriminate categories in<br>
+                <span>textual data.</span></h3>
+            <div>
+                <a href="#wordify" class="btn-get-started scrollto">Get Started</a>
+                <a href="#services" class="btn-services scrollto">FAQ</a>
+            </div>
+        </div>
+    </div>
+</section><!-- #intro -->
+<main id="main">
+    <!--==========================
+    About Us Section
+  ============================-->
+    <section id="about">
+        <div class="container">
+            <header class="section-header">
+                <h3>How it works</h3>
+                <p>Simply upload an Excel file, and let us do the rest.</p>
+            </header>
+            <div class="row about-container">
+                <div class="col-lg-6 content order-lg-1 order-2">
+                    <p>
+                        Let's explain <strong>Wordify</strong> with an example. Imagine you are thinking about having a glass of wine with your friends; you know you like bold, woody wine, but are unsure which one to choose. You wonder whether there are some words that describe each type of wine; since you are a researcher, you decide to approach the problem scientifically.
+                    </p>
+                    <div class="icon-box wow">
+                        <div class="icon"><i class="fa fa-file"></i></div>
+                        <h4 class="title"><a href="">Gather textual data</a></h4>
+                        <p class="description">You go to your favorite platform and for each type of wine (label) you dowload some reviews (texts).</p>
+                    </div>
+                    <div class="icon-box wow" data-wow-delay="0.2s">
+                        <div class="icon"><i class="fa fa-quote-left"></i></div>
+                        <h4 class="title"><a href=""><strong>Wordify</strong> the data</a></h4>
+                        <p class="description">You use our platform to <strong>wordify</strong> your data.</p>
+                    </div>
+                    <div class="icon-box wow" data-wow-delay="0.4s">
+                        <div class="icon"><i class="fa fa-envelope"></i></div>
+                        <h4 class="title"><a href="">Receive your results</a></h4>
+                        <p class="description">You receive by email the results of the analysis which will tell you the most indicative words, both negative and positive, for each type of wine.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+                    <img src="{{ url_for('static', filename='img/about-img.svg') }}" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="row about-extra">
+                <div class="col-lg-6 wow fadeInUp">
+                    <img src="{{ url_for('static', filename='img/about-extra-2.svg') }}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 wow pt-5 pt-lg-0">
+                    <h4>Step 1. Prepare your data</h4>
+                    <p>
+                        Create an Excel file with two columns. Name your columns <strong>"text"</strong> and <strong>"label"</strong>. Copy each of your texts into its own row in the first column, and add the respective label in the second column.
+                    </p>
+                    <p>To have reliable results, we suggest providing at least 2000 labelled texts. If you provide less we will still <strong>wordify</strong> your file, but the results should then be taken with a grain of salt.
+                    </p>
+                    <p>We currently do not support multi-language texts, therefore your texts should be in one language. <a href="#services">FAQ</a> to see those supported.</p>
+                </div>
+            </div>
+            <div class="row about-extra">
+                <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
+                    <img src="{{ url_for('static', filename='img/about-extra-1.svg') }}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 wow pt-4 pt-lg-0 order-2 order-lg-1">
+                    <h4>Step 2. Upload your file</h4>
+                    <p>
+                        Once you have prepared your Excel file, click the "Choose File" button. Browse for your file.
+                    </p>
+                    <p>
+                        Choose the language of your texts. Check out the <a href="#services">FAQ</a> to see those supported. Provide your email. We will process your data and you will receive your <strong>wordified</strong> file by email. Depending on the number of requests, it can take up to 30 minutes (but usually 3-4 are enough). No data is stored on our server.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section><!-- #about -->
+    <!--==========================
+    Wordify Section
+  ============================-->
+    <section id="wordify">
+        <div class="container">
+            <div class="jumbotron wow fadeInUp">
+                <h1><strong>Wordify</strong> your data!</h1>
+                <form id="formid" action="" method="POST" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+                    {{ form.csrf_token }}
+                    <div id="forms-par">
+                        <p>
+                            {{ form.file(id="fileForm", class="btn btn-default", value="Browse your files...") }}
+                        </p>
+                        <!-- <p>
+                            {% for error in form.file.errors %}
+                            <div class="alert alert-warning">
+                                <button type="button" class="close" data-dismiss="alert"=>
+                                    &times;</button>
+                                {{ error }}
+                            </div>
+                            {% endfor %}
+                        </p> -->
+                        <p>
+                            <div id="errorformat"></div>
+                        </p>
+                        <p>{{ form.language(class="form-control") }}</p>
+                        <p>{{ form.email(id="emailaddress", type="email", class="form-control", placeholder="Enter your email...") }}</p>
+                        <p>
+                            <div id="errorformatemail"></div>
+                        </p>
+                    </div>
+                    <p id="submit-par">{{ form.submit(class="btn btn-lg btn-primary", id="submit-button", value="Wordify!") }}
+                    </p>
+                </form>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert"=>
+                        &times;</button>
+                    <strong>Warning:</strong> {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </section>
+    <!--==========================
+    Services Section
+  ============================-->
+    <section id="services" class="section-bg">
+        <div class="container">
+            <header class="section-header">
+                <h3>FAQ</h3>
+                <p>Should you have questions other than these below, please do not hesitate to contact us.</p>
+            </header>
+            <div class="row">
+                <div class="col-md-6 col-lg-5 offset-lg-1 wow" data-wow-duration="1.4s">
+                    <div class="box">
+                        <div class="icon"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                        <h4 class="title"><a href="">What is <strong>Wordify</strong>?</a></h4>
+                        <p class="description">A way to find out which terms are most indicative for each of your dependent variable values.</p>
+                    </div>
+                    <div class="box">
+                        <div class="icon"><i class="ion-ios-cloud-outline" style="color: #ff8902;"></i></div>
+                        <h4 class="title"><a href="">What happens to my data?</a></h4>
+                        <p class="description">Nothing. We never store the data you upload on disk: it is only kept in memory for the duration of the modeling, and then deleted. We do not retain any copies or traces of your data.</p>
+                    </div>
+                    <div class="box">
+                        <div class="icon"><i class="ion-ios-copy-outline" style="color: #3fcdc7;"></i></div>
+                        <h4 class="title"><a href="">What input formats do you support?</a></h4>
+                        <p class="description">The file you upload should be .xlsx, with two columns: the first should be labeled 'text' and contain all your documents (e.g., tweets, reviews, patents, etc.), one per line. The second column should be labeled 'label', and contain the dependent variable label associated with each text (e.g., rating, author gender, company, etc.).</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-5 offset-lg-1 wow" data-wow-duration="1.4s">
+                    <div class="box">
+                        <div class="icon"><i class="ion-ios-bookmarks-outline" style="color: #e9bf06;"></i></div>
+                        <h4 class="title"><a href="">How does it work?</a></h4>
+                        <p class="description">It uses a variant of Stability Selection <a href="//rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1467-9868.2010.00740.x%4010.1111/%28ISSN%291467-9868.TOP_SERIES_B_RESEARCH">(Meinshausen and Bühlmann, 2010)</a> to fit hundreds of logistic regression models on random subsets of the data, using different L1 penalties to drive as many of the term coefficients to 0. Any terms that receive a non-zero coefficient in at least 30% of all model runs can be seen as stable indicators.</p>
+                    </div>
+                    <div class="box">
+                        <div class="icon"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>
+                        <h4 class="title"><a href="">How much data do I need?</a></h4>
+                        <p class="description">We recommend at least 2000 instances, the more, the better. With fewer instances, the results are less replicable and reliable.</p>
+                    </div>
+                    <div class="box">
+                        <div class="icon"><i class="ion-ios-paper-outline" style="color: #4680ff;"></i></div>
+                        <h4 class="title"><a href="">Is there a paper I can cite?</a></h4>
+                        <p class="description">Yes please! Reference coming soon...</p>
+                    </div>
+                    <div class="box">
+                        <div class="icon"><i class="fa fa-language" style="color: #ff689b;"></i></div>
+                        <h4 class="title"><a href="">What languages are supported?</a></h4>
+                        <p class="description">Currently we support: English, German, Dutch, Spanish, French, Portuguese, Italian, Greek.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- #services -->
+    <!--==========================
+    Contact Section
+  ============================-->
+    <section id="contact">
+        <div class="container-fluid">
+            <div class="section-header">
+                <h3>Contact Us</h3>
+            </div>
+            <div class="row wow row-eq-height justify-content-center">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-5 info">
+                            <i class="ion-ios-location-outline"></i>
+                            <p>Via Röntgen n. 1, Milan 20136 (ITALY)</p>
+                        </div>
+                        <div class="col-md-4 info">
+                            <i class="ion-ios-email-outline"></i>
+                            <p>wordify@unibocconi.it</p>
+                        </div>
+                        <div class="col-md-3 info">
+                            <i class="ion-ios-telephone-outline"></i>
+                            <p>+39 02 5836 2604</p>
+                        </div>
+                    </div>
+                    <div class="map mb-4 mb-lg-0">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.949796165441!2d9.185730115812493!3d45.450667779100726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c405ae6543c9%3A0xf2bb2313b36af88c!2sVia%20Guglielmo%20R%C3%B6ntgen%2C%201%2C%2020136%20Milano%20MI!5e0!3m2!1sit!2sit!4v1569325279433!5m2!1sit!2sit" frameborder="0" style="border:0; width: 100%; height: 312px;" allowfullscreen></iframe>
+                    </div>
+                    <div class="container">
+                        <a href="mailto:wordify@unibocconi.it" class="btn btn-md btn-primary">Send Message</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- #contact -->
+    {% endblock %}
+    {% block javascript %}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#fileForm").on('change', function(event) {
+            var file = event.target.files[0];
+
+            if (!(file.type.match('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') || file.type.match('application/vnd.ms-excel'))) {
+                //$(".alert").toggleClass('in out');
+                $("#errorformat").append('<div class="alert alert-warning alert-dismissible" role="alert" id="buttonAlert"> <strong>Warning:</strong> Please upload an Excel file. <button type="button" class="close" data-dismiss="alert"> <span>&times;</span></button></div>');
+                //alert("only JPG images");
+                $("#formid").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
+                return;
+            }
+        });
+
+        function validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        $("#emailaddress").on("change", function() {
+            var email = $('#emailaddress').val();
+            if (!validateEmail(email)) {
+                $("#errorformatemail").append('<div class="alert alert-warning alert-dismissible" role="alert" id="buttonAlert"> <strong>Warning:</strong> Please enter a valid email address. <button type="button" class="close" data-dismiss="alert"> <span>&times;</span></button></div>');
+            }
+        });
+    });
+    </script>
+    {% endblock %}

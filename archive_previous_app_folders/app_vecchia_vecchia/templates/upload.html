@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" id="description-upload">
+    <p>Simply upload an Excel file, and let us do the rest.</p>
+</div>
+<div id="upload-block">
+    <div class="container" id="upload-container">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            {{ form.csrf_token }}
+            <p>{{ form.file(class="btn btn-default", id="upload-button") }}</p>
+            <p>
+                {% for error in form.file.errors %}
+                <div class="alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert"=>
+                        &times;</button>
+                    {{ error }}
+                </div>
+                {% endfor %}
+            </p>
+            <p>{{ form.language(class="form-control") }}</p>
+            <p>{{ form.email(class="form-control", placeholder="Enter your email...") }}</p>
+            <p>
+                {% for error in form.email.errors %}
+                <div class="alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert"=>
+                        &times;</button>
+                    {{ error }}
+                </div>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit(class="btn btn-primary", id="submit-button") }}</p>
+        </form>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert"=>
+                &times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+</div>
+{% endblock %}
