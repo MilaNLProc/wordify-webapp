@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 # files with passwords
 ./app/config.py
 
-=======
->>>>>>> 76771d9f6beed791e63a5af2634b4f30adeb0222
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
