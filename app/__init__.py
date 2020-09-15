@@ -2,7 +2,7 @@ from flask import Flask
 from flask_mail import Mail, Message, Attachment
 
 # create an app instance
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./static')
 
 # Setup the app with the config.py file
 app.config.from_object('app.config')
