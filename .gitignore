@@ -1,4 +1,4 @@
-# files with passwords
+# files
 ./app/config.py
 
 # Byte-compiled / optimized / DLL files
@@ -127,9 +127,7 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+dump.rdb
 
 # Pyre type checker
 .pyre/
-
-# clutter
-dump.rdb
