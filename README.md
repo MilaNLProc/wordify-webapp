@@ -8,13 +8,13 @@ That sounds like a lot of work. But the good news is we can tools that take care
 
 - The [Flask](https://flask.palletsprojects.com/en/1.1.x/) app: Flask is a simple, lightweight WSGI* web application framework. It provides you with tools, libraries, and technologies that allow you to build a web service. It is a microframework designed to get started quickly and easily, with the ability to scale up to complex applications. If you want to learn Flask, you must check out this amazing [mega-tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
     
-    *WSGI is the Web Server Gateway Interface. It is a specification that describes how a web server communicates with web applications, and how web applications can be chained together to process one request. A WSGI middleware component is a Python callable that is itself a WSGI application - Gunicorn in our case. A WSGI component can perform functions like:
+  *WSGI is the Web Server Gateway Interface. It is a specification that describes how a web server communicates with web applications, and how web applications can be chained together to process one request. A WSGI middleware component is a Python callable that is itself a WSGI application - Gunicorn in our case. A WSGI component can perform functions like:
         
-        - Routing a request to different application objects based on the target URL, after changing the environment variables accordingly.
-        
-        - Allowing multiple applications or frameworks to run side-by-side in the same process.
-        
-        - Load balancing and remote processing, by forwarding requests and responses over a network.
+  * Routing a request to different application objects based on the target URL, after changing the environment variables accordingly.
+
+  * Allowing multiple applications or frameworks to run side-by-side in the same process.
+
+  * Load balancing and remote processing, by forwarding requests and responses over a network.
 
 - The [Gunicorn](https://gunicorn.org/) application server: Gunicorn is a WSGI server. Gunicorn is built so that many different web servers can interact with it. It also does not care what you used to build your web application — as long as it can be interacted with using the WSGI interface. Gunicorn takes care of everything which happens in-between the web server and your web application. Gunicorns run multiple instances of your web application, making sure that they are healthy and restart them whenever needed, distributing incoming requests across those instances, and communicate with the webserver. A Gunicorn (WSGI) server is a must when an application is deployed in production.
 
