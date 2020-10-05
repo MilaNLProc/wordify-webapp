@@ -22,7 +22,7 @@ That sounds like a lot of work. But the good news is we can tools that take care
 
 Roughly speaking, these components are collated together as follows: the web server (Nginx) accepts requests, takes care of general domain logic, and takes care of handling https connections. Only requests which are meant to arrive at the application are passed on toward the application server (Gunicorn) and the application itself (Flask).
 
-<img src="./workflow.png" width="600" />
+<img src="./workflow.png" width="800"/>
 
 ## One-time Steps
 Once you have a Flask app running locally, to put it in production you have to 
