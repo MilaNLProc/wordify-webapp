@@ -21,6 +21,9 @@ make container
 open your browser at localhost:8787 and look at the nice Wordify app!
 
 
+----
+
+
 ## Structure
 Imagine hosting or deploying multiple web applications in production. One will have to carry out the following tasks: (i) handle static files if present, (ii) handle https connections, (iii) recover from crashes, (iv) make sure your application can scale up to serve multiple requests.
 
