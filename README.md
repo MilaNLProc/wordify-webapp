@@ -1,6 +1,26 @@
 # Introduction
 This is the repo for the [Wordify](https://wordify.unibocconi.it/index) web-app.
 
+## How to use
+If you read what's below, you're wasting time! Below I describe the old implementation of the app, the so-called "bare metal": create the app directly on the hosting machine. It's painful, prone to errors, and contributors cannot easily run locally. 
+
+Here comes docker! 
+
+Now you do not have to think about Gunicorn, servers, and stuff. Just build the image
+
+```bash
+make build
+```
+
+and spawn a container
+
+```bash
+make container
+```
+
+open your browser at localhost:8787 and look at the nice Wordify app!
+
+
 ## Structure
 Imagine hosting or deploying multiple web applications in production. One will have to carry out the following tasks: (i) handle static files if present, (ii) handle https connections, (iii) recover from crashes, (iv) make sure your application can scale up to serve multiple requests.
 
