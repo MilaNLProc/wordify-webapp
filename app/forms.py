@@ -9,29 +9,42 @@ from wtforms.validators import DataRequired, Email
 # a form class defines the fields of the form as class variables
 class WordifyForms(FlaskForm):
 
-    file = FileField(validators=[
-        FileRequired('blabla'),
-        FileAllowed(app.config['ALLOWED_EXTENSIONS'],
-                    'Excel files only!')  # this check is performed in javascript
-    ])
+    # file browser
+    file = FileField(
+        validators=[
+            FileRequired("blabla"),
+            FileAllowed(
+                app.config["ALLOWED_EXTENSIONS"], "Excel files only!"
+            ),  # this check is performed in javascript
+        ]
+    )
 
-    language = SelectField('Language',
-                           coerce=str, choices=[('en', 'English'),
-                                                ('de', 'German'),
-                                                ('nl', 'Dutch'),
-                                                ('es', 'Spanish'),
-                                                ('fr', 'French'),
-                                                ('pt', 'Portuguese'),
-                                                ('it', 'Italian'),
-                                                ('el', 'Greek')])
-    email = StringField('Email',
-                        validators=[DataRequired(), Email(
-                            "Please enter a valid email address.")]
-                        )
+    # language drop-down
+    language = SelectField(
+        "Language",
+        coerce=str,
+        choices=[
+            ("en", "English"),
+            ("de", "German"),
+            ("nl", "Dutch"),
+            ("es", "Spanish"),
+            ("fr", "French"),
+            ("pt", "Portuguese"),
+            ("it", "Italian"),
+            ("el", "Greek"),
+        ],
+    )
 
-    submit = SubmitField('Submit')
+    # email field
+    email = StringField(
+        "Email",
+        validators=[DataRequired(), Email("Please enter a valid email address.")],
+    )
+
+    # submit button
+    submit = SubmitField("Submit")
 
 
 class LoginForm(FlaskForm):
 
-    password = StringField('Password', validators=[DataRequired()])
+    password = StringField("Password", validators=[DataRequired()])
