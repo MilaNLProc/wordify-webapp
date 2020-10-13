@@ -21,3 +21,5 @@ scipy~=1.5
 Werkzeug~=0.16
 WTForms==2.2.1
 xlrd~=1.2
+pytest~=6.1
+stop-words

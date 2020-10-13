@@ -5,7 +5,7 @@ from flask_mail import Mail, Message, Attachment
 app = Flask(__name__)
 
 # Setup the app with the config.py file
-app.config.from_object('app.config')
+app.config.from_object("app.config")
 
 # send email
 mail = Mail(app)
