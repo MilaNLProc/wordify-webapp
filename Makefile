@@ -22,13 +22,14 @@ help:
 build: ## Build the latest image
 	docker build -t $(PROJECT):${BUILD_TAG} .
 
-exec: DARGS?=-v $(PWD):/opt/app
+exec: DARGS?=-v $(PWD):/app
 exec: ## Exec into the container
 	docker run -it --rm $(DARGS) $(PROJECT) bash
 
-container: DARGS?=-v $(PWD):/opt/app -p 8787:80  # NOTE docker port must be 80
+dev: DARGS?=-v $(PWD):/app -p 8787:80  # NOTE docker port must be 80
+dev: ## Run shiny
+	docker run --name wordify-container -it --rm $(DARGS) $(PROJECT):${BUILD_TAG}
+
+container: DARGS?=-p 8787:80  # NOTE docker port must be 80
 container: ## Run shiny
 	docker run -d --name wordify-container -it --rm $(DARGS) $(PROJECT):${BUILD_TAG}
-
-
-docker run -d --name devtest -v myvolume:/app wordify-webapp:latest -p 8787:80 

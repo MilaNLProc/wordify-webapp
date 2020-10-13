@@ -12,13 +12,25 @@ Now you do not have to think about Gunicorn, servers, and stuff. Just build the 
 make build
 ```
 
-and spawn a container
+and spawn a container. 
+
+
+## Local development
+
+For local development use
 
 ```bash
-make container
+make dev
 ```
 
-open your browser at localhost:8787 and look at the nice Wordify app!
+This will spawn a container, start serving the flask app at localhost:8787, and - importantly - bind your local `/app` folder to the `/app` folder in the container so you can edit on your file system and directly see the changes within the docker container.
+
+
+## Deployment [WIP]
+
+```bash
+make deploy
+```
 
 
 ----

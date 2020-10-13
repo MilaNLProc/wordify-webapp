@@ -2,7 +2,8 @@
 app/config.py
 
 # Byte-compiled / optimized / DLL files
-app/__pycache__/
+*/__pycache__/
+__pycache__
 app/*.pyc
 
 # MacOS
