@@ -79,7 +79,10 @@ class Wordify(object):
         users = re.compile("@[^ ]+")
         breaks = re.compile("[\r\n\t]+")
         urls = re.compile(
-            r"(https?:\/\/)?(?:www\.|(?!www))?[^\s\.]+\.[^\s]{2,}|(www)?\.[^\s]+\.[^\s]{2,}"
+            (
+                r"(https?:\/\/)?(?:www\.|(?!www))?[^\s\.]+\.[^\s]{2,}"
+                r"|(www)?\.[^\s]+\.[^\s]{2,}"
+            )
         )
 
         return " ".join(

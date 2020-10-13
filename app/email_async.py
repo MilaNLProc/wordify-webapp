@@ -1,5 +1,5 @@
 from threading import Thread
-from app import app, mail, Message, Attachment
+from app import app, mail, Attachment
 from app.wordifier import Wordify
 
 # from io import BytesIO
@@ -50,11 +50,19 @@ def task_async(app, data, file_name, language, recipient):
 
             print("Sending email...")
             # send email
-            msg = mail.send_message(
+            mail.send_message(
                 subject="Wordified file",
                 sender=app.config["ADMINS"][0],
                 recipients=[recipient],
-                body="Dear user,\r\n\nPlease find attached your Wordified file. It contains two sheets: one with the positive indicators for each label and one with the negative indicators (note that if you have only two labels, the positive indicators of one label are the negative ones of the other, and vice versa).\r\nIf you do not see any indicators, you might have provided too few texts per label.\r\n\nYour Wordify Team",
+                body=(
+                    "Dear user,\r\n\nPlease find attached your Wordified file. "
+                    "It contains two sheets: one with the positive indicators for "
+                    "each label and one with the negative indicators (note that if "
+                    "you have only two labels, the positive indicators of one label "
+                    "are the negative ones of the other, and vice versa).\r\nIf you "
+                    "do not see any indicators, you might have provided too few texts "
+                    "per label.\r\n\nYour Wordify Team"
+                ),
                 attachments=[attachment],
             )
             print("Email sent")
@@ -65,14 +73,18 @@ def task_async(app, data, file_name, language, recipient):
     except Exception as e:
         with app.app_context():
 
-            msg = mail.send_message(
+            mail.send_message(
                 subject="Wordify: Sorry, something went wrong",
                 sender=app.config["ADMINS"][0],
                 recipients=[recipient],
-                body="Sorry, something went wrong while wordifying your file. The administrators have been notified and the problem will be solved as soon as possible.",
+                body=(
+                    "Sorry, something went wrong while wordifying your file. The "
+                    "administrators have been notified and the problem will be solved "
+                    "as soon as possible."
+                )
             )
 
-            msg_to_admin = mail.send_message(
+            mail.send_message(
                 subject="Wordify: Exception",
                 sender=app.config["ADMINS"][0],
                 recipients=[app.config["ADMINS"][0], app.config["ADMINS"][1]],

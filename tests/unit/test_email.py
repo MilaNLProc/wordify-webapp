@@ -1,13 +1,14 @@
 import platform  # For getting the operating system name
 import subprocess  # For executing a shell command
-from app import mail
-from app.config import MAIL_SERVER, ADMINS
+
+from app.config import ADMINS, MAIL_SERVER
 
 
 def test_ping_google(google_host):
     """
     Returns True if host (str) responds to a ping request.
-    Remember that a host may not respond to a ping (ICMP) request even if the host name is valid.
+    Remember that a host may not respond to a ping (ICMP)
+    request even if the host name is valid.
     """
 
     # Option for the number of packets as a function of
@@ -22,7 +23,8 @@ def test_ping_google(google_host):
 def test_ping_mailserver():
     """
     Returns True if host (str) responds to a ping request.
-    Remember that a host may not respond to a ping (ICMP) request even if the host name is valid.
+    Remember that a host may not respond to a ping (ICMP)
+    request even if the host name is valid.
     """
 
     # Option for the number of packets as a function of

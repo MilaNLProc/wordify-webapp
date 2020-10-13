@@ -1,4 +1,5 @@
 # spacy models
+pip~=20.2
 spacy==2.3.2
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.3.0/en_core_web_sm-2.3.0.tar.gz#egg=en_core_web_sm
 https://github.com/explosion/spacy-models/releases/download/it_core_news_sm-2.3.0/it_core_news_sm-2.3.0.tar.gz#egg=it_core_news_sm
@@ -22,4 +23,3 @@ Werkzeug~=0.16
 WTForms==2.2.1
 xlrd~=1.2
 pytest~=6.1
-stop-words
