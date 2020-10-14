@@ -23,7 +23,13 @@ For local development use
 make dev
 ```
 
-This will spawn a container, start serving the flask app at localhost:8787, and - importantly - bind your local `/app` folder to the `/app` folder in the container so you can edit on your file system and directly see the changes within the docker container.
+This will spawn a container and start a bash inside the container. Importantly, it bind your local `/app` folder to the `/app` folder in the container so you can edit on your file system and directly see the changes within the docker container. To start flask in debug mode type
+
+```bash
+python main.py --debug True
+```
+
+In the container shell. This will start serving the flask app at localhost:8787. 
 
 
 ## Deployment [WIP]
@@ -31,6 +37,8 @@ This will spawn a container, start serving the flask app at localhost:8787, and 
 ```bash
 make deploy
 ```
+
+This will spawn a container, start serving the flask app at localhost:8787.
 
 
 ----
