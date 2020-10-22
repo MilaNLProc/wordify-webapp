@@ -24,6 +24,8 @@ def index():
         file_name = file.filename
         language = form.language.data
         email = form.email.data
+        threshold = float(form.threshold.data)
+        iterations = int(form.iterations.data)
 
         # prevents reading file with a lot of columns
         df = pd.read_excel(
@@ -65,7 +67,7 @@ def index():
             flash("\r\n".join(error_message))
 
             # process, wordify, and send email
-            email_async.send(df, file_name, language, email)
+            email_async.send(df, file_name, language, email, threshold, iterations)
 
             return redirect(url_for("final"))
 

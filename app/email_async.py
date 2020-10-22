@@ -7,7 +7,7 @@ import pandas as pd
 import os
 
 
-def send(data, file_name, language, recipient):
+def send(data, file_name, language, recipient, threshold, iterations):
     """
     :param data: pandas DataFrame
     :param language: str
@@ -15,11 +15,14 @@ def send(data, file_name, language, recipient):
     """
 
     # Create a new thread
-    thr = Thread(target=task_async, args=[app, data, file_name, language, recipient])
+    thr = Thread(
+        target=task_async,
+        args=[app, data, file_name, language, recipient, threshold, iterations],
+    )
     thr.start()
 
 
-def task_async(app, data, file_name, language, recipient):
+def task_async(app, data, file_name, language, recipient, threshold, iterations):
     """ Send the mail asynchronously. """
 
     try:
@@ -27,7 +30,9 @@ def task_async(app, data, file_name, language, recipient):
 
             print("Wordifying...")
             # wordify
-            algo = Wordify(language, num_iters=500)
+            algo = Wordify(
+                language, num_iters=iterations, selection_threshold=threshold
+            )
             pos, neg = algo(data)
 
             print("Writing to disk...")
@@ -81,7 +86,7 @@ def task_async(app, data, file_name, language, recipient):
                     "Sorry, something went wrong while wordifying your file. The "
                     "administrators have been notified and the problem will be solved "
                     "as soon as possible."
-                )
+                ),
             )
 
             mail.send_message(
@@ -90,5 +95,3 @@ def task_async(app, data, file_name, language, recipient):
                 recipients=[app.config["ADMINS"][0], app.config["ADMINS"][1]],
                 body="{}\n{}".format(e.__doc__, e),
             )
-
-            # mail.send(msg_to_admin)

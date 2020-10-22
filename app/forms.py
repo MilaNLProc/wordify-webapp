@@ -1,8 +1,7 @@
 from app import app
 from flask_wtf import FlaskForm
-from flask_wtf.file import FileField, FileRequired, FileAllowed
-from wtforms import SelectField, StringField, SubmitField
-from wtforms.validators import DataRequired, Email
+from flask_wtf.file import FileField, FileRequired, FileAllowed, DataRequired
+from wtforms import SelectField, StringField, SubmitField, FloatField
 
 
 # flask_wtf uses python classes to represent web forms
@@ -38,13 +37,11 @@ class WordifyForms(FlaskForm):
     # email field
     email = StringField(
         "Email",
-        validators=[DataRequired(), Email("Please enter a valid email address.")],
+        validators=[DataRequired("Please enter a valid email address.")],
     )
+
+    iterations = FloatField(validators=[DataRequired()], default=100)
+    threshold = FloatField(validators=[DataRequired()], default=0.3)
 
     # submit button
     submit = SubmitField("Submit")
-
-
-class LoginForm(FlaskForm):
-
-    password = StringField("Password", validators=[DataRequired()])
