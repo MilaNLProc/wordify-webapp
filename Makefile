@@ -26,10 +26,10 @@ exec: DARGS?=-v $(PWD):/app
 exec: ## Exec into the container
 	docker run -it --rm $(DARGS) $(PROJECT) bash
 
-dev: DARGS?=-v $(PWD):/app -p 8787:80  # NOTE docker port must be 80
-dev: ## Run shiny
+dev: DARGS?=-v $(PWD):/app -p 8787:5000 --entrypoint bash  # NOTE docker port must be 80
+dev: 
 	docker run --name wordify-container -it --rm $(DARGS) $(PROJECT):${BUILD_TAG}
 
 container: DARGS?=-p 8787:80  # NOTE docker port must be 80
-container: ## Run shiny
+container: 
 	docker run -d --name wordify-container -it --rm $(DARGS) $(PROJECT):${BUILD_TAG}
