@@ -24,7 +24,7 @@ LANG_FULL = {
 TEXT = "text"  # how we expect the text column to be called
 LABEL = "label"  # how we expect the label column to be called
 SAMPLE_FRACTION = 0.75
-MIN_SELECTION = 100000
+MIN_SELECTION = 100_000
 PENALTIES = [10, 5, 2, 1, 0.5, 0.1, 0.05, 0.01, 0.005, 0.001, 0.0001, 0.00001]
 
 
