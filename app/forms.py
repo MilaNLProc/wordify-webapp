@@ -2,7 +2,6 @@ from app import app
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired, FileAllowed, DataRequired
 from wtforms import SelectField, StringField, SubmitField, FloatField
-from wtforms.validators import DataRequired, Email
 
 
 # flask_wtf uses python classes to represent web forms
