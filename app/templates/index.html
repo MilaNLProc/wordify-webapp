@@ -85,55 +85,9 @@
             </div>
         </div>
     </section><!-- #about -->
-    <!--==========================
-    Wordify Section
-  ============================-->
-    <section id="wordify">
-        <div class="container">
-            <div class="jumbotron wow fadeInUp">
-                <h1><strong>Wordify</strong> your data!</h1>
-                <form id="formid" action="" method="POST" enctype="multipart/form-data">
-                    {{ form.hidden_tag() }}
-                    {{ form.csrf_token }}
-                    <div id="forms-par">
-                        <p>
-                            {{ form.file(id="fileForm", class="btn btn-default", value="Browse your files...") }}
-                        </p>
-                        <!-- <p>
-                            {% for error in form.file.errors %}
-                            <div class="alert alert-warning">
-                                <button type="button" class="close" data-dismiss="alert"=>
-                                    &times;</button>
-                                {{ error }}
-                            </div>
-                            {% endfor %}
-                        </p> -->
-                        <p>
-                            <div id="errorformat"></div>
-                        </p>
-                        <p>{{ form.language(class="form-control") }}</p>
-                        <p>{{ form.email(id="emailaddress", type="email", class="form-control", placeholder="Enter your email...") }}</p>
-                        <p>
-                            <div id="errorformatemail"></div>
-                        </p>
-                    </div>
-                    <p id="submit-par">{{ form.submit(class="btn btn-lg btn-primary", id="submit-button", value="Wordify!") }}
-                    </p>
-                </form>
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                {% for message in messages %}
-                <div class="alert alert-warning">
-                    <button type="button" class="close" data-dismiss="alert"=>
-                        &times;</button>
-                    <strong>Warning:</strong> {{ message }}
-                </div>
-                {% endfor %}
-                {% endif %}
-                {% endwith %}
-            </div>
-        </div>
-    </section>
+ 
+    {% include "wordifyform.html" %}
+
     <!--==========================
     Services Section
   ============================-->
