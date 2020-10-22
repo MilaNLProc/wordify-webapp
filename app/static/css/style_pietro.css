@@ -259,13 +259,7 @@ h6 {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-
 /* Desktop Navigation */
-
-.main-nav {
-    /* Drop Down */
-    /* Deep Drop Down */
-}
 
 .main-nav,
 .main-nav * {
@@ -657,6 +651,7 @@ h6 {
 
 #submit-par {
     text-align: center;
+    padding-top: 30px;
 }
 
 #submit-button {
@@ -669,6 +664,18 @@ h6 {
 #wordify .alert-warning {
     font-size: 1rem;
 }
+
+#wordify .form-text {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+#advset {
+    font-family: "Spoon";
+    font-weight: 400;
+    color: #fff;
+}
+
 
 /* Services Section
 --------------------------------*/
