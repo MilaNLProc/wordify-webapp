@@ -23,3 +23,4 @@ Werkzeug~=0.16
 WTForms==2.2.1
 xlrd~=1.2
 pytest~=6.1
+openpyxl~=3.0

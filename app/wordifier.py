@@ -29,7 +29,7 @@ PENALTIES = [10, 5, 2, 1, 0.5, 0.1, 0.05, 0.01, 0.005, 0.001, 0.0001, 0.00001]
 
 
 class Wordify(object):
-    def __init__(self, language, num_iters=100, selection_threshold=0.3):
+    def __init__(self, language, num_iters=500, selection_threshold=0.3):
         self.num_iters = num_iters
         self.selection_threshold = selection_threshold
 

@@ -1,5 +1,6 @@
 from flask import render_template, redirect, flash, url_for, session
-from app import app, email_async
+from app import app
+from app.processor import exec_async
 from app.forms import WordifyForms
 import pandas as pd
 
@@ -19,21 +20,21 @@ def index():
     form = WordifyForms()
 
     if form.validate_on_submit():
-        # collect the client inputs
+
+        # collect the user inputs
         file = form.file.data
         file_name = file.filename
         language = form.language.data
-        email = form.email.data
+        recipient = form.email.data
         threshold = float(form.threshold.data)
-        iterations = int(form.iterations.data)
 
         # prevents reading file with a lot of columns
         df = pd.read_excel(
             file, usecols=lambda col: col in set(["label", "text"]), dtype=str
         )
 
+        # This implements all the logic for the checks
         # checks if columns read are correct
-        # checks if unique labels are too few
         if ("label" in df.columns) and ("text" in df.columns):
             session["nrow"] = df.shape[0]
             session["nlabel"] = len(df["label"].unique())
@@ -47,6 +48,7 @@ def index():
 
             error_message = []
 
+            # checks if unique labels are too few
             if session.get("nrow") <= MIN_ROWS:
                 error_message.append(
                     "Your file has less than {} texts.".format(MIN_ROWS)
@@ -67,7 +69,7 @@ def index():
             flash("\r\n".join(error_message))
 
             # process, wordify, and send email
-            email_async.send(df, file_name, language, email, threshold, iterations)
+            exec_async(df, file_name, language, threshold, recipient)
 
             return redirect(url_for("final"))
 
