@@ -1,0 +1,1 @@
+This is the folder that will contain the generated files. Once they are sent, the files are removed from this folder.

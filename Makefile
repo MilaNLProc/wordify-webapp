@@ -37,6 +37,6 @@ deploy: ## Deployment
 	docker stop wordify-container
 	docker image rm $(PROJECT):${BUILD_TAG}
 	docker build -t $(PROJECT):${BUILD_TAG} .
-	docker run -d --name wordify-container -it --rm $(DARGS) $(PROJECT):${BUILD_TAG}
+	docker run -d --name wordify-container -it --rm -v $(PWD):/app -p 6006:80 $(PROJECT):${BUILD_TAG}
 
 
