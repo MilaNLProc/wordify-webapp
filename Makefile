@@ -25,9 +25,18 @@ exec: ## Exec into the container
 	docker run -it --rm $(DARGS) $(PROJECT) bash
 
 dev: DARGS?=-v $(PWD):/app -p 6006:80  # NOTE docker port must be 80
-dev: ## Run dev mode
+dev: ## Run dev mode (do not detach terminal)
 	docker run --name wordify-container -it --rm $(DARGS) $(PROJECT):${BUILD_TAG}
 
 container: DARGS?=-v $(PWD):/app -p 6006:80  # NOTE docker port must be 80
 container: ## Run wordify
 	docker run -d --name wordify-container -it --rm $(DARGS) $(PROJECT):${BUILD_TAG}
+
+deploy: ## Deployment
+	git pull origin master
+	docker stop wordify-container
+	docker image rm $(PROJECT):${BUILD_TAG}
+	docker build -t $(PROJECT):${BUILD_TAG} .
+	docker run -d --name wordify-container -it --rm $(DARGS) $(PROJECT):${BUILD_TAG}
+
+
