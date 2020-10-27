@@ -9,10 +9,8 @@ ALL_IMAGES:=src
 
 help:
 # http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
-	@echo "R starter project"
+	@echo "Wordify webapp"
 	@echo "====================="
-	@echo "Replace % with a directory name (e.g., make build/rstats-example)"
-	@echo
 	@grep -E '^[a-zA-Z0-9_%/-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 ########################################################
@@ -27,9 +25,9 @@ exec: ## Exec into the container
 	docker run -it --rm $(DARGS) $(PROJECT) bash
 
 dev: DARGS?=-v $(PWD):/app -p 6006:80  # NOTE docker port must be 80
-dev: ## Run shiny
+dev: ## Run dev mode
 	docker run --name wordify-container -it --rm $(DARGS) $(PROJECT):${BUILD_TAG}
 
 container: DARGS?=-v $(PWD):/app -p 6006:80  # NOTE docker port must be 80
-container: ## Run shiny
+container: ## Run wordify
 	docker run -d --name wordify-container -it --rm $(DARGS) $(PROJECT):${BUILD_TAG}
