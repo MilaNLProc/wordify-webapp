@@ -38,5 +38,5 @@ deploy: ## Deployment
     # Build the image before stopping the container 
 	# (This will NOT affect the existing container using the old image)
 	docker build -t $(PROJECT):${BUILD_TAG} .
-	docker stop wordify-container
+	docker stop -f wordify-container
 	docker run -d --name wordify-container -it --rm -v $(PWD):/app -p 6006:80 $(PROJECT):${BUILD_TAG}
