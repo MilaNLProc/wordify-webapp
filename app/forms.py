@@ -2,6 +2,7 @@ from app import app
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired, FileAllowed, DataRequired
 from wtforms import SelectField, StringField, SubmitField, FloatField
+from .wordifier import LANG_FULL
 
 
 # flask_wtf uses python classes to represent web forms
@@ -22,16 +23,7 @@ class WordifyForms(FlaskForm):
     language = SelectField(
         "Language",
         coerce=str,
-        choices=[
-            ("en", "English"),
-            ("de", "German"),
-            ("nl", "Dutch"),
-            ("es", "Spanish"),
-            ("fr", "French"),
-            ("pt", "Portuguese"),
-            ("it", "Italian"),
-            ("el", "Greek"),
-        ],
+        choices=[(shortcut, name[0].title()) for shortcut, name in LANG_FULL.items()],
     )
 
     # email field

@@ -9,16 +9,23 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import LabelEncoder
 from sklearn.utils import resample
 
-ALLOWED_LANGUAGES = {"en", "de", "nl", "es", "fr", "pt", "it", "el"}
 LANG_FULL = {
     "en": ("english", "en_core_web_sm"),
-    "de": ("german", "de_core_news_sm"),
-    "nl": ("dutch", "nl_core_news_sm"),
-    "es": ("spanish", "es_core_news_sm"),
-    "fr": ("french", "fr_core_news_sm"),
-    "pt": ("portuguese", "pt_core_news_sm"),
     "it": ("italian", "it_core_news_sm"),
+    "de": ("german", "de_core_news_sm"),
+    "es": ("spanish", "es_core_news_sm"),
     "el": ("greek", "el_core_news_sm"),
+    "nl": ("dutch", "nl_core_news_sm"),
+    "pt": ("portuguese", "pt_core_news_sm"),
+    "fr": ("french", "fr_core_news_sm"),
+    "zh": ("chinese", "zh_core_news_sm"),
+    "da": ("danish", "da_core_news_sm"),
+    "ja": ("japanese", "ja_core_news_sm"),
+    "lt": ("lithuanian", "lt_core_news_sm"),
+    "nb": ("norvegian", "nb_core_news_sm"),
+    "pl": ("polish", "pl_core_news_sm"),
+    "ro": ("romanian", "ro_core_news_sm"),
+    "ru": ("russian", "ru_core_news_sm"),
 }
 
 TEXT = "text"  # how we expect the text column to be called

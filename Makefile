@@ -20,7 +20,7 @@ help:
 build: ## Build the latest image
 	docker build -t $(PROJECT):${BUILD_TAG} .
 
-exec: DARGS?=-v $(PWD):/app
+exec: DARGS?=-v $(PWD):/app -p 5000:5000
 exec: ## Exec into the container
 	docker run -it --rm $(DARGS) $(PROJECT) bash
 
