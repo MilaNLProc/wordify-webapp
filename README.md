@@ -1,3 +1,7 @@
+# UPDATE
+This repo is now archived, please refer to the newer version here: https://github.com/MilaNLProc/wordify-webapp-streamlit.
+
+
 # Introduction
 This is the repo for the [Wordify](https://wordify.unibocconi.it/index) web-app.
 
